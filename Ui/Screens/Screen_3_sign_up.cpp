@@ -1,0 +1,50 @@
+#include "ConsoleUi.h"
+
+
+
+
+
+
+
+void ConsoleUi::Screen_3_sign_up()
+{
+	do
+	{
+		cls;
+		end_line;
+		print_tab_ln("Какую учетную запись Вы хотите создать?");
+		print_tab_ln("1 - Сотрудника");
+		print_tab_ln("2 - Клиента" << end);
+		print_tab("Введите: ");
+		char switch_on;
+		cin >> switch_on;
+		switch (switch_on)
+		{
+		case '1':
+		{
+			do
+			{
+				cls;
+				end_line;
+				print_tab("Введите ваше Имя: ");
+				print_tab("Введите ваше Фамилию: ");
+				print_tab("Придумайте логин: ");
+				print_tab("Придумайте пароль: ");
+				
+			} while (true);
+		}break;
+		case '2':
+		{
+			
+		}break;
+		default:
+		{
+			cls;
+			ColorDialog::error();
+			print_tab_ln("Ошибка ввода! Неверный символ ввода.");
+			ColorDialog::reset();
+			pause;
+		}break;
+		}
+	} while (true);
+}
