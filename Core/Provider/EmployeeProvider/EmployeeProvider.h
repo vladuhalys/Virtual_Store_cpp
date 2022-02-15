@@ -6,6 +6,12 @@
 #ifndef _employee_provider_h
 #define _employee_provider_h
 
+
+enum InfoType {
+	personalInfo,
+	password
+};
+
 class EmployeeProvider : public CRAD
 {
 private:
@@ -13,8 +19,7 @@ private:
 	set<Employee> ::iterator iter;
 
 	//private Function
-	string CreatePersonalInfo(string text);
-	string CreatePassword(string text);
+	string CreatePersonalInfo(string text, InfoType info);
 public:
 	//Constructor
 	EmployeeProvider();
