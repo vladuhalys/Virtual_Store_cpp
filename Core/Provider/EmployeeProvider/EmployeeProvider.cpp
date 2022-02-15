@@ -59,14 +59,12 @@ string EmployeeProvider::CreatePersonalInfo(string text, InfoType info)
 //CRAD override
 void EmployeeProvider::Create()
 {
-	string firstName = CreatePersonalInfo("Введите ваше Имя: ");
-	string secondName = CreatePersonalInfo("Введите ваше Фамилию: ");
-	string login = CreatePersonalInfo("Введите ваше Имя: ");
-	string password = CreatePassword("Придумайте пароль: ");
-	print_tab("Введите ваше Имя: ");
-	print_tab("Введите ваше Фамилию: ");
-	print_tab("Придумайте логин: ");
-	print_tab("Придумайте пароль: ");
+	string firstName = CreatePersonalInfo("Введите ваше Имя: ", InfoType::personalInfo);
+	string lastName = CreatePersonalInfo("Введите ваше Фамилию: ", InfoType::personalInfo);
+	string login = CreatePersonalInfo("Введите ваше Имя: ", InfoType::personalInfo);
+	string password = CreatePersonalInfo("Придумайте пароль: ", InfoType::password);
+	Employee emp(login, password, firstName, lastName, Rank::normal);
+	employees.insert(emp);
 }
 void EmployeeProvider::Remove()
 {
