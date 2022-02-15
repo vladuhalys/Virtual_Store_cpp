@@ -14,6 +14,7 @@ private:
 
 	//private Function
 	string CreatePersonalInfo(string text);
+	string CreatePassword(string text);
 public:
 	//Constructor
 	EmployeeProvider();

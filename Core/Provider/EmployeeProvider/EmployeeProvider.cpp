@@ -36,13 +36,40 @@ string EmployeeProvider::CreatePersonalInfo(string text)
 	} while (true);
 	return value;
 }
+string EmployeeProvider::CreatePassword(string text)
+{
+	string value;
+	do
+	{
+		cls;
+		end_line;
+		print_tab(text);
+		cin >> value;
+		if (Validation::ValidatePassword(value) == false)
+		{
+			cls;
+			ColorDialog::error();
+			print_tab_ln("Ошибка ввода! Длина пароля не должна быть меньше 6 символов.");
+			ColorDialog::reset();
+			pause;
+		}
+		else
+		{
+			break;
+		}
+
+	} while (true);
+	return value;
+}
 
 
 //CRAD override
 void EmployeeProvider::Create()
 {
-
-	
+	string firstName = CreatePersonalInfo("Введите ваше Имя: ");
+	string secondName = CreatePersonalInfo("Введите ваше Фамилию: ");
+	string login = CreatePersonalInfo("Введите ваше Имя: ");
+	string password = CreatePersonalInfo("Придумайте пароль: ");
 	print_tab("Введите ваше Имя: ");
 	print_tab("Введите ваше Фамилию: ");
 	print_tab("Придумайте логин: ");
