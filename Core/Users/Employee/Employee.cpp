@@ -1,14 +1,18 @@
 #include "Employee.h"
 
 //Setter
-void Employee::setRank(Rank rank)
+void Employee::setRank(string rank)
 {
 	this->rank = rank;
 }
 
 //Getter
-Rank Employee::getRank()
+string Employee::getRank()
 {
 	return this->rank;
 }
 
+std::ostream& operator << (std::ostream& os, const Employee& obj)
+{
+	return os << obj.id << tab << obj.login << tab << obj.password <<
+		obj.first_name << tab << obj.last_name << tab << obj.rank;

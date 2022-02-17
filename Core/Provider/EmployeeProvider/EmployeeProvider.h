@@ -30,6 +30,9 @@ public:
 	void Add() override;
 	void Delete() override;
 
+	void ShowAllEmployees();
+
+
 	//Destructor
 	~EmployeeProvider();
 

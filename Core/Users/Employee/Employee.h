@@ -3,28 +3,23 @@
 #ifndef _employee_h
 #define _employee_h
 
-enum class Rank {
-	empty=0,
-	low = 1,
-	normal = 2,
-	high = 2,
-};
-
 class Employee : public Account
 {
 protected:
-	Rank rank;
+	string rank;
 public:
-	Employee() : Account(), rank(Rank::empty)
+	Employee() : Account()
 	{}
-	Employee(string login, string password, string first_name, string last_name, Rank rank) : Account(login, password, first_name, last_name), rank(rank)
+	Employee(string login, string password, string first_name, string last_name, string rank) : Account(login, password, first_name, last_name), rank(rank)
 	{}
 
 	//Setter
-	void setRank(Rank rank);
+	void setRank(string rank);
 
 	//Getter
-	Rank getRank();
+	string getRank();
+
+	friend std::ostream& operator << (std::ostream& os, const Employee& obj);
 };
 
 #endif
