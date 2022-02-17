@@ -85,33 +85,32 @@ string EmployeeProvider::CheckInputLogin(string text)
 string EmployeeProvider::InputRank()
 {
 	string value;
-	char switch_on;
+	int switch_on;
 	bool flag;
 	do
 	{
+		flag = false;
 		cls;
 		end_line;
-		print_tab("Выберите ваш ранг: ");
-		print_tab(tab << "[1] : Обычный сотрудник");
-		print_tab(tab << "[2] : Менеджер");
-		print_tab(tab << "[3] : Сотрудник управления");
+		print_tab_ln("Выберите ваш ранг: ");
+		print_tab_ln(tab << "[1] : Обычный сотрудник");
+		print_tab_ln(tab << "[2] : Менеджер");
+		print_tab_ln(tab << "[3] : Сотрудник управления");
+		print_tab(tab << "> ");
 		cin >> switch_on;
 		switch (switch_on)
 		{
-		case '1':
+		case 1:
 		{
 			value = "Обычный сотрудник";
-			break;
 		}break;
-		case '2':
+		case 2:
 		{
 			value = "Менеджер";
-			break;
 		}break;
-		case '3':
+		case 3:
 		{
 			value = "Сотрудник управления";
-			break;
 		}break;
 		default:
 		{
@@ -120,9 +119,10 @@ string EmployeeProvider::InputRank()
 			print_tab_ln("Ошибка ввода! Неверный ввод.");
 			ColorDialog::reset();
 			pause;
+			flag = true;
 		}break;	
 		}
-	} while (true);
+	} while (flag);
 	return value;
 }
 
@@ -155,7 +155,7 @@ void EmployeeProvider::ShowAllEmployees()
 	end_line;
 	for (size_t i = 0; i < employees.size(); i++)
 	{
-		print_tab_ln(employees[i]);
+		print_tab_ln(*employees[i]);
 	}
 	pause;
 }
