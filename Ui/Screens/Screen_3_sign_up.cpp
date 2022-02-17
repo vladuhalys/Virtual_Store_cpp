@@ -1,11 +1,5 @@
 #include "ConsoleUi.h"
 
-
-
-
-
-
-
 void ConsoleUi::Screen_3_sign_up()
 {
 	do
@@ -22,16 +16,8 @@ void ConsoleUi::Screen_3_sign_up()
 		{
 		case '1':
 		{
-			do
-			{
-				cls;
-				end_line;
-				print_tab("Введите ваше Имя: ");
-				print_tab("Введите ваше Фамилию: ");
-				print_tab("Придумайте логин: ");
-				print_tab("Придумайте пароль: ");
-				
-			} while (true);
+			employeeProvider.Create();
+			employeeProvider.ShowAllEmployees();
 		}break;
 		case '2':
 		{

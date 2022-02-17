@@ -23,6 +23,7 @@ private:
 	string InputRank();
 public:
 	//Constructor
+	EmployeeProvider() = default;
 	EmployeeProvider(vector<Employee*> employees);
 
 	//CRAD override

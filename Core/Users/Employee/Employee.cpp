@@ -16,3 +16,4 @@ std::ostream& operator << (std::ostream& os, const Employee& obj)
 {
 	return os << obj.id << tab << obj.login << tab << obj.password <<
 		obj.first_name << tab << obj.last_name << tab << obj.rank;
+}

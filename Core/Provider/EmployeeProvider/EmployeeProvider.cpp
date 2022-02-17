@@ -165,7 +165,11 @@ EmployeeProvider::~EmployeeProvider()
 {
 	if (employees.size() == 0)
 	{
-		this->employees.clear();
+		for (size_t i = 0; i < employees.size(); i++)
+		{
+			delete[] employees[i];
+		}
+		employees.clear();
 	}
 }
 

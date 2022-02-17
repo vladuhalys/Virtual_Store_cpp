@@ -5,9 +5,8 @@ int main()
 {
 	RusLang;
 	ColorDialog::reset();
-
-	ConsoleUi::Screen_1_login();
-
+	ConsoleUi consoleUi;
+	consoleUi.Screen_1_login();
 	return 0;
 }
 
