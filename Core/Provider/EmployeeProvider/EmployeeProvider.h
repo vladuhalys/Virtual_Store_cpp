@@ -15,14 +15,15 @@ enum InfoType {
 class EmployeeProvider : public CRAD
 {
 private:
-	vector<Employee> employees;
+	vector<Employee*> employees;
 
 	//private Function
 	string CreatePersonalInfo(string text, InfoType info);
 	string CheckInputLogin(string text);
+	string InputRank();
 public:
 	//Constructor
-	EmployeeProvider(vector<Employee> employees);
+	EmployeeProvider(vector<Employee*> employees);
 
 	//CRAD override
 	void Create() override;

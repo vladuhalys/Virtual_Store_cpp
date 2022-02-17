@@ -1,7 +1,7 @@
 #include "EmployeeProvider.h"
 
 //Constructor
-EmployeeProvider::EmployeeProvider(vector<Employee> employees) : EmployeeProvider()
+EmployeeProvider::EmployeeProvider(vector<Employee*> employees)
 {
 	this->employees = employees;
 }
@@ -65,9 +65,9 @@ string EmployeeProvider::CheckInputLogin(string text)
 		end_line;
 		print_tab(text);
 		cin >> value;
-		for (Employee obj: employees)
+		for (auto obj: employees)
 		{
-			if (obj.getLogin() == value)
+			if (obj->getLogin() == value)
 			{
 				cls;
 				ColorDialog::error();
@@ -82,7 +82,49 @@ string EmployeeProvider::CheckInputLogin(string text)
 	return value;
 }
 
-
+string EmployeeProvider::InputRank()
+{
+	string value;
+	char switch_on;
+	bool flag;
+	do
+	{
+		cls;
+		end_line;
+		print_tab("Выберите ваш ранг: ");
+		print_tab(tab << "[1] : Обычный сотрудник");
+		print_tab(tab << "[2] : Менеджер");
+		print_tab(tab << "[3] : Сотрудник управления");
+		cin >> switch_on;
+		switch (switch_on)
+		{
+		case '1':
+		{
+			value = "Обычный сотрудник";
+			break;
+		}break;
+		case '2':
+		{
+			value = "Менеджер";
+			break;
+		}break;
+		case '3':
+		{
+			value = "Сотрудник управления";
+			break;
+		}break;
+		default:
+		{
+			cls;
+			ColorDialog::error();
+			print_tab_ln("Ошибка ввода! Неверный ввод.");
+			ColorDialog::reset();
+			pause;
+		}break;	
+		}
+	} while (true);
+	return value;
+}
 
 //CRAD override
 void EmployeeProvider::Create()
@@ -91,8 +133,8 @@ void EmployeeProvider::Create()
 	string lastName = CreatePersonalInfo("Введите ваше Фамилию: ", InfoType::personalInfo);
 	string login = CheckInputLogin("Введите ваш login: ");
 	string password = CreatePersonalInfo("Придумайте пароль: ", InfoType::password);
-	Employee emp(login, password, firstName, lastName, Rank::normal);
-	employees.push_back(emp);
+	string rank = InputRank();
+	employees.push_back(new Employee(login, password, firstName, lastName, rank));
 }
 void EmployeeProvider::Remove()
 {
@@ -107,7 +149,16 @@ void EmployeeProvider::Delete()
 
 }
 
-
+void EmployeeProvider::ShowAllEmployees()
+{
+	cls;
+	end_line;
+	for (size_t i = 0; i < employees.size(); i++)
+	{
+		print_tab_ln(employees[i]);
+	}
+	pause;
+}
 
 //Destructor
 EmployeeProvider::~EmployeeProvider()
