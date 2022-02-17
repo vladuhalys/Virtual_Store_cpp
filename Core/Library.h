@@ -4,18 +4,18 @@
 #include <conio.h>
 #include <Windows.h>
 #include <string.h>
-#include <set>
+#include <vector>
 
 using std::string;
 using std::cout;
 using std::endl;
 using std::cin;
-using std::set;
+using std::vector;
 
 
 #define RusLang {SetConsoleCP(1251); SetConsoleOutputCP(1251);}
 #define tab '\t'
-#define end '\n'
+#define ends '\n'
 #define end_line cout << endl
 
 #define cls system("cls")

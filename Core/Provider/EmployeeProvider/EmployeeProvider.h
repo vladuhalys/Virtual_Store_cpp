@@ -15,15 +15,14 @@ enum InfoType {
 class EmployeeProvider : public CRAD
 {
 private:
-	set<Employee> employees;
-	set<Employee> ::iterator iter;
+	vector<Employee> employees;
 
 	//private Function
 	string CreatePersonalInfo(string text, InfoType info);
+	string CheckInputLogin(string text);
 public:
 	//Constructor
-	EmployeeProvider();
-	EmployeeProvider(set<Employee> employees);
+	EmployeeProvider(vector<Employee> employees);
 
 	//CRAD override
 	void Create() override;

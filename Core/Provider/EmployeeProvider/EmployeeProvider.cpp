@@ -1,14 +1,12 @@
 #include "EmployeeProvider.h"
 
 //Constructor
-EmployeeProvider::EmployeeProvider()
-{
-	this->iter = employees.begin();
-}
-EmployeeProvider::EmployeeProvider(set<Employee> employees) : EmployeeProvider()
+EmployeeProvider::EmployeeProvider(vector<Employee> employees) : EmployeeProvider()
 {
 	this->employees = employees;
 }
+
+
 
 //private Function
 string EmployeeProvider::CreatePersonalInfo(string text, InfoType info)
@@ -56,15 +54,45 @@ string EmployeeProvider::CreatePersonalInfo(string text, InfoType info)
 	return value;
 }
 
+string EmployeeProvider::CheckInputLogin(string text)
+{
+	string value;
+	bool flag;
+	do
+	{
+		flag = false;
+		cls;
+		end_line;
+		print_tab(text);
+		cin >> value;
+		for (Employee obj: employees)
+		{
+			if (obj.getLogin() == value)
+			{
+				cls;
+				ColorDialog::error();
+				print_tab_ln("Введенный login занят! Введите другой...");
+				ColorDialog::reset();
+				pause;
+				flag = true;
+				break;
+			}
+		}
+	} while (flag);
+	return value;
+}
+
+
+
 //CRAD override
 void EmployeeProvider::Create()
 {
 	string firstName = CreatePersonalInfo("Введите ваше Имя: ", InfoType::personalInfo);
 	string lastName = CreatePersonalInfo("Введите ваше Фамилию: ", InfoType::personalInfo);
-	string login = CreatePersonalInfo("Введите ваше Имя: ", InfoType::personalInfo);
+	string login = CheckInputLogin("Введите ваш login: ");
 	string password = CreatePersonalInfo("Придумайте пароль: ", InfoType::password);
 	Employee emp(login, password, firstName, lastName, Rank::normal);
-	employees.insert(emp);
+	employees.push_back(emp);
 }
 void EmployeeProvider::Remove()
 {

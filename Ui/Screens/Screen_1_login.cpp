@@ -8,7 +8,7 @@ void ConsoleUi::Screen_1_login()
 		end_line;
 		print_tab_ln("1 - Создайте новую учетную запись");
 		print_tab_ln("2 - Войдите в существующую учетную запись");
-		print_tab_ln("3 - Выход" << end);
+		print_tab_ln("3 - Выход" << ends);
 		print_tab("Введите: ");
 		char switch_on;
 		cin >> switch_on;

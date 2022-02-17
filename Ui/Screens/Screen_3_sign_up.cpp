@@ -14,7 +14,7 @@ void ConsoleUi::Screen_3_sign_up()
 		end_line;
 		print_tab_ln("Какую учетную запись Вы хотите создать?");
 		print_tab_ln("1 - Сотрудника");
-		print_tab_ln("2 - Клиента" << end);
+		print_tab_ln("2 - Клиента" << ends);
 		print_tab("Введите: ");
 		char switch_on;
 		cin >> switch_on;
