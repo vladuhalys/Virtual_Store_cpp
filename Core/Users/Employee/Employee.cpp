@@ -14,6 +14,6 @@ string Employee::getRank()
 
 std::ostream& operator << (std::ostream& os, const Employee& obj)
 {
-	return os << obj.id << tab << obj.login << tab << obj.password <<
-		obj.first_name << tab << obj.last_name << tab << obj.rank;
+	return os << obj.id  << tab << obj.first_name << tab << obj.last_name 
+		<< tab << obj.rank << tab << obj.login << tab << obj.password;
 }
