@@ -1,12 +1,26 @@
 #include "Validation.h"
 
+bool Validation::IsDigit(char sign)
+{
+	string digits = "0123456789";
+	for (size_t i = 0; i < digits.size(); i++)
+	{
+		if (digits[i] == sign)
+		{
+			return true;
+		}
+	}
+	return false;
+}
+
 bool Validation::ValidatePersonalInfo(string value)
 {
+	
 	try
 	{
 		for (char symbol : value)
 		{
-			if (isdigit(symbol))
+			if (IsDigit(symbol))
 			{
 				throw (symbol);
 			}

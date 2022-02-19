@@ -135,6 +135,11 @@ void EmployeeProvider::Create()
 	string password = CreatePersonalInfo("Придумайте пароль: ", InfoType::password);
 	string rank = InputRank();
 	employees.push_back(new Employee(login, password, firstName, lastName, rank));
+	cls;
+	ColorDialog::success();
+	print_tab_ln("Учетная запись создана! Повторите вход...");
+	ColorDialog::reset();
+	pause;
 }
 void EmployeeProvider::Remove()
 {
