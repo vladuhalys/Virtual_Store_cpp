@@ -17,7 +17,8 @@ void ConsoleUi::Screen_3_sign_up()
 		case '1':
 		{
 			employeeProvider.Create();
-			employeeProvider.ShowAllEmployees();
+			//employeeProvider.ShowAllEmployees();
+			Screen_1_login();
 		}break;
 		case '2':
 		{
