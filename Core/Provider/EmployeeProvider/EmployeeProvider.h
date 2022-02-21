@@ -7,11 +7,6 @@
 #define _employee_provider_h
 
 
-enum InfoType {
-	personalInfo,
-	password
-};
-
 class EmployeeProvider : public CRAD
 {
 private:

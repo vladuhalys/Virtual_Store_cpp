@@ -3,6 +3,10 @@
 #ifndef _validation_h
 #define _validation_h
 
+enum InfoType {
+	personalInfo,
+	password
+};
 
 class Validation
 {
